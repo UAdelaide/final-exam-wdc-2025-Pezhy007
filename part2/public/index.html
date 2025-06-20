@@ -182,6 +182,7 @@
                 try {
                   const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
                   const photoData = await photoResponse.json();
+                  console.log('Photo fetched:', )
                   return {
                     ...dog,
                     photo: photoData.message
