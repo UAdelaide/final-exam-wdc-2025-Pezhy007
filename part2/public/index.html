@@ -183,17 +183,15 @@
               loading: true
             }));
 
-    // Load photos one by one and update reactively
-    for (let i = 0; i < this.dogs.length; i++) {
-      try {
-        console.log(`Loading photo for dog ${i}:`, this.dogs[i].dog_name);
-        const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
-        const photoData = await photoResponse.json();
+            for (let i = 0; i < this.dogs.length; i++) {
+              try {
+               console.log(`Loading photo for dog ${i}:`, this.dogs[i].dog_name);
+               const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
+               const photoData = await photoResponse.json();
 
-        console.log(`Photo loaded for ${this.dogs[i].dog_name}:`, photoData.message);
+               console.log(`Photo loaded for ${this.dogs[i].dog_name}:`, photoData.message);
 
-        // Update the specific dog's photo - this triggers Vue reactivity
-        this.dogs[i].photo = photoData.message;
+                this.dogs[i].photo = photoData.message;
         this.dogs[i].loading = false;
 
       } catch (error) {
