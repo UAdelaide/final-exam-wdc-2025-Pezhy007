@@ -73,6 +73,8 @@
               this.user = await response.json();
               this.isLoggedIn = true;
             }
+          } catch (error) {
+            console.log('')
           }
         }
       }
