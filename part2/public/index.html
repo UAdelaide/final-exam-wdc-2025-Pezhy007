@@ -195,17 +195,17 @@
             );
 
             this.dogs = dogsWithPhotos;
-      } catch (error) {
-        console.error('Error loading dogs:', error);
-        this.dogs = [];
-      } finally {
-        this.dogsLoading = false;
-      }
-    },
+          } catch (error) {
+            console.error('Error loading dogs:', error);
+            this.dogs = [];
+          } finally {
+            this.dogsLoading = false;
+          }
+        },
 
-    handleImageError(event) {
-      event.target.src = 'https://via.placeholder.com/80x80/cccccc/ffffff?text=Dog';
-    }
+        handleImageError(event) {
+          event.target.src = 'https://via.placeholder.com/80x80/cccccc/ffffff?text=Dog';
+        }
 
   }
         }
