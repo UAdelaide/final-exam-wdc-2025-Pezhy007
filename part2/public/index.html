@@ -24,7 +24,7 @@
                 <input type="text" class="form-control" id="username" v-model="loginForm.username" required>
               </div>
               <button type="submit" class="btn btn-primary" :disabled="loading">
-                {{ loading ? ''}}
+                {{ loading ? 'Logging in...' : 'Log In'}}
               </button>
             </form>
           </div>
