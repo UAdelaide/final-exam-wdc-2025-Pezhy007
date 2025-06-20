@@ -13,7 +13,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
-    saveUni}))
+    saveUninitialized: false,
+    coockie: { secure: false, maxAge: 24}}))
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
