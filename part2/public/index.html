@@ -108,7 +108,9 @@
         },
         async logout() {
           try {
-            await fetch('/api/users/logout', { method: 'POST'})
+            await fetch('/api/users/logout', { method: 'POST'});
+            this.isLoggedIn = false;
+            this.user = null;
           }
         }
       }
