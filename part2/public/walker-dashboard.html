@@ -90,7 +90,11 @@
           }
         }
 
-        
+        async function logout() {
+          try {
+            await fetch('/api/users/')
+          }
+        }
 
         onMounted(() => {
           loadWalkRequests();
