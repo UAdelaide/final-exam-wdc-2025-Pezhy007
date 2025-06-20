@@ -170,20 +170,20 @@
         },
         async loadAllDogs() {
           this.dogsLoading = true;
-      try {
-        const response = await fetch('/api/dogs');
-        if (!response.ok) throw new Error('Failed to fetch dogs');
+          try {
+            const response = await fetch('/api/dogs');
+            if (!response.ok) throw new Error('Failed to fetch dogs');
 
-        const dogsData = await response.json();
+            const dogsData = await response.json();
 
-        const dogsWithPhotos = await Promise.all(
-          dogsData.map(async (dog) => {
-            try {
-              const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
-              const photoData = await photoResponse.json();
-              return {
-                ...dog,
-                photo: photoData.message
+            const dogsWithPhotos = await Promise.all(
+              dogsData.map(async (dog) => {
+                try {
+                  const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
+                  const photoData = await photoResponse.json();
+                  return {
+                    ...dog,
+                    photo: photoData.message
               };
             } catch (error) {
               return {
