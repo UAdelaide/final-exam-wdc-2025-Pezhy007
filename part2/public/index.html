@@ -112,7 +112,9 @@
             this.isLoggedIn = false;
             this.user = null;
             window.location.reload();
-          } catch (error) {}
+          } catch (error) {
+            console.error('Logout failed');
+          }
         }
       }
     }).mount('#app');
