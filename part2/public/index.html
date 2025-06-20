@@ -67,6 +67,7 @@
                 <tr v-for="dog in dogs" :key="dog.dog_name">
                   <td>
                     <img src="https://via.placeholder.com/80x80/cccccc/ffffff?text=Loading..."
+                        alt="Dog photo"
                         :src="dog.photo"
                         :alt="dog.dog_name"
                         class="img-thumbnail"
