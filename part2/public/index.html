@@ -68,7 +68,7 @@
       methods: {
         async checkLoginStatus() {
           try {
-            const response = await
+            const response = await fetch('/api/users/me');
           }
         }
       }
