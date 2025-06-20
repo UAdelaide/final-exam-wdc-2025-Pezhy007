@@ -106,9 +106,8 @@
             if (!res.ok) throw new Error('Failed to load your dogs');
             myDogs.value = await res.json();
           } catch (err) {
-            error.value = 'Failed to load your dogs: ' +
+            error.value = 'Failed to load your dogs: ' + err.message;
           }
-
         }
 
         async function submitWalkRequest() {
