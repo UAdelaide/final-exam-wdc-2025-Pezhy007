@@ -11,8 +11,10 @@
   <div id="app" class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="text-success">Walker Dashboard</h1>
-      <button type="button" class="btn btn-outline-danger" @click=""logout
-    </div>>
+      <button type="button" class="btn btn-outline-danger" @click="logout">
+        logout
+      </button>
+    </div>
 
     <!-- Alert messages -->
     <div v-if="message" class="alert alert-info">{{ message }}</div>
