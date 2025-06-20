@@ -58,19 +58,19 @@
               <thead class="table-primary">
                 <tr>
                   <th>Photo</th>
-              <th>Dog Name</th>
-              <th>Size</th>
-              <th>Owner</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="dog in dogs" :key="dog.dog_name">
-              <td>
-                <img :src="dog.photo"
-                     :alt="dog.dog_name"
-                     class="img-thumbnail"
-                     style="width: 80px; height: 80px; object-fit: cover;"
-                     @error="handleImageError">
+                  <th>Dog Name</th>
+                  <th>Size</th>
+                  <th>Owner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="dog in dogs" :key="dog.dog_name">
+                  <td>
+                    <img :src="dog.photo"
+                        :alt="dog.dog_name"
+                        class="img-thumbnail"
+                        style="width: 80px; height: 80px; object-fit: cover;"
+                        @error="handleImageError">
               </td>
               <td><strong>{{ dog.dog_name }}</strong></td>
               <td>
