@@ -192,7 +192,7 @@
                console.log(`Photo loaded for ${this.dogs[i].dog_name}:`, photoData.message);
 
                 this.dogs[i].photo = photoData.message;
-        this.dogs[i].loading = false;
+                this.dogs[i].loading = false;
 
       } catch (error) {
         console.error(`Failed to load photo for dog ${i}:`, error);
