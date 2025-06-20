@@ -137,7 +137,9 @@
               method: 'POST',
               headers: { 'Content-Type': 'application/json' }
             });
-          } catch (error)
+          } catch (error){
+            console.error('Logout ')
+          }
         }
 
         onMounted(() => {
