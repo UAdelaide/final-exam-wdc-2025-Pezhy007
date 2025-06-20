@@ -96,8 +96,8 @@
               this.user = data.user;
               this.isLoggedIn = true;
               this.loginForm = { username: '', password: ''};
-              window.location.href
-            }
+              window.location.href = data.redirectTo;
+            } else {}
           }
         }
       }
