@@ -81,7 +81,8 @@
 
         async function checkAuth() {
           try {
-            const response
+            const response = await fetch('/api/users/me');
+            if (!response)
           }
         }
 
