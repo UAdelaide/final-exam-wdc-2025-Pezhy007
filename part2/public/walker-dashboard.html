@@ -82,8 +82,10 @@
         async function checkAuth() {
           try {
             const response = await fetch('/api/users/me');
-            if (!response)
-          }
+            if (!response.ok) {
+              window.location.href = '/';
+            }
+          } catch
         }
 
         onMounted(() => {
