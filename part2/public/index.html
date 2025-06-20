@@ -69,6 +69,9 @@
         async checkLoginStatus() {
           try {
             const response = await fetch('/api/users/me');
+            if (response.ok) {
+              this.user = await
+            }
           }
         }
       }
