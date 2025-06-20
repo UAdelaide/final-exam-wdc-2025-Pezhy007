@@ -92,7 +92,10 @@
 
         async function logout() {
           try {
-            await fetch('/api/users/')
+            await fetch('/api/users/logout', {
+              method: 'POST',
+              headers: { ''}
+            })
           }
         }
 
