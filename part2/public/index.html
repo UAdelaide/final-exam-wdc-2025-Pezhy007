@@ -111,7 +111,8 @@
             await fetch('/api/users/logout', { method: 'POST'});
             this.isLoggedIn = false;
             this.user = null;
-          }
+            window.location.reload();
+          } catch (error) {}
         }
       }
     }).mount('#app');
