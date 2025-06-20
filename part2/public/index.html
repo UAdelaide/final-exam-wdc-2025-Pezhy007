@@ -169,9 +169,9 @@
           }
         },
         async loadAllDogs() {
-  this.dogsLoading = true;
-  try {
-    const response = await fetch('/api/users/dogs');
+          this.dogsLoading = true;
+          try {
+            const response = await fetch('/api/users/dogs');
     if (!response.ok) throw new Error('Failed to fetch dogs');
 
     const dogsData = await response.json();
