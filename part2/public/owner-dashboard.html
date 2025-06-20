@@ -135,9 +135,9 @@
           try {
             await fetch('/api/users/logout', {
               method: 'POST',
-              headers: { 'Content-Type'}
-            })
-          }
+              headers: { 'Content-Type': 'application/json' }
+            });
+          } catch (error)
         }
 
         onMounted(() => {
