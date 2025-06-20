@@ -34,8 +34,7 @@
 <body>
   <div id="app">
     <h1>Dog of the Day</h1>
-    <img :src="dogImage" alt="dog" width="300" />
-    <p><strong>Name:</strong> Doggo</p>
+    <img :src="dogImage || 'https://via.placeholder.com/300x200/cccccc/ffffff?text=Loading...'" alt="dog" width="300" />    <p><strong>Name:</strong> Doggo</p>
     <p><strong>Breed:</strong> Unknown</p>
 
     <button>Home</button>
