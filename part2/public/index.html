@@ -182,12 +182,13 @@
                 try {
                   const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
                   const photoData = await photoResponse.json();
-                  console.log('Photo fetched:', )
+                  console.log('Photo fetched:', photoData.message);
                   return {
                     ...dog,
                     photo: photoData.message
                   };
                 } catch (error) {
+                  console.log('')
                   return {
                     ...dog,
                     photo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjY2NjY2NjIi8+Cjx0ZXh0IHg9IjQwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Eb2c8L3RleHQ+Cjwvc3ZnPgo='
