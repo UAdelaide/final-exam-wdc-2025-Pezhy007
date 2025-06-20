@@ -94,8 +94,8 @@
           try {
             await fetch('/api/users/logout', {
               method: 'POST',
-              headers: { ''}
-            })
+              headers: { 'Content-Type': 'application/json' }
+            });
           }
         }
 
