@@ -83,7 +83,10 @@
 
           try {
             const response = await fetch('/api/users/login', {
-              method
+              method: 'POST',
+              headers: {
+                'Content-Type'
+              }
             })
           }
         }
