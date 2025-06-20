@@ -134,7 +134,8 @@
         async function logout() {
           try {
             await fetch('/api/users/logout', {
-              method
+              method: 'POST',
+              headers: { 'Content-Type'}
             })
           }
         }
