@@ -65,7 +65,13 @@
       async mounted() {
         await this.checkLoginStatus();
       },
-      methods:
+      methods: {
+        async checkLoginStatus() {
+          try {
+            const response = await
+          }
+        }
+      }
     }).mount('#app');
   </script>
 
