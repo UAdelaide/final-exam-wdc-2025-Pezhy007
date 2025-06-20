@@ -184,17 +184,17 @@
                   return {
                     ...dog,
                     photo: photoData.message
-              };
-            } catch (error) {
-              return {
-                ...dog,
-                photo: 'https://via.placeholder.com/80x80/cccccc/ffffff?text=Dog'
-              };
-            }
-          })
-        );
+                  };
+                } catch (error) {
+                  return {
+                    ...dog,
+                    photo: 'https://via.placeholder.com/80x80/cccccc/ffffff?text=Dog'
+                  };
+                }
+              })
+            );
 
-        this.dogs = dogsWithPhotos;
+            this.dogs = dogsWithPhotos;
       } catch (error) {
         console.error('Error loading dogs:', error);
         this.dogs = [];
