@@ -27,7 +27,7 @@
                 {{ loading ? 'Logging in...' : 'Log In' }}
               </button>
             </form>
-            <div v-if
+            <div v-if="error" class="akert alert-danger mt-3"></div>
           </div>
         </div>
       </div>
