@@ -72,7 +72,7 @@
                         style="width: 80px; height: 80px; object-fit: cover;"
                         :class="{ 'opacity-50': dog.loading }"
                         @error="handleImageError">
-                    <div v-if="dog.loading" class="small text-muted">Loading</div>
+                    <div v-if="dog.loading" class="small text-muted">Loading...</div>
                   </td>
                   <td><strong>{{ dog.dog_name }}</strong></td>
                   <td>
