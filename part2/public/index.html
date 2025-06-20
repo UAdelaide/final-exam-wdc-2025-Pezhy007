@@ -31,7 +31,7 @@
                 {{ loading ? 'Logging in...' : 'Log In' }}
               </button>
             </form>
-            <div v-if="error" class="akert alert-danger mt-3"></div>
+            <div v-if="error" class="akert alert-danger mt-3">{{ error }}</div>
           </div>
         </div>
       </div>
