@@ -71,24 +71,24 @@
                         class="img-thumbnail"
                         style="width: 80px; height: 80px; object-fit: cover;"
                         @error="handleImageError">
-              </td>
-              <td><strong>{{ dog.dog_name }}</strong></td>
-              <td>
-                <span class="badge" :class="{
-                  'bg-success': dog.size === 'small',
-                  'bg-warning': dog.size === 'medium',
-                  'bg-danger': dog.size === 'large'
-                }">
-                  {{ dog.size }}
-                </span>
-              </td>
-              <td>{{ dog.owner_username }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                  </td>
+                  <td><strong>{{ dog.dog_name }}</strong></td>
+                  <td>
+                    <span class="badge" :class="{
+                      'bg-success': dog.size === 'small',
+                      'bg-warning': dog.size === 'medium',
+                      'bg-danger': dog.size === 'large'
+                    }">
+                      {{ dog.size }}
+                    </span>
+                  </td>
+                  <td>{{ dog.owner_username }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <div v-else class="alert alert-info">
+          <div v-else class="alert alert-info">
         No dogs registered yet.
       </div>
     </div>
