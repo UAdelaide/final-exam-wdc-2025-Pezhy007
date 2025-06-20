@@ -14,7 +14,9 @@ app.use(session({
     secret: 'your-secret-key',
     resave: false,
     saveUninitialized: false,
-    coockie: { secure: false, maxAge: 24}}))
+    coockie: { secure: false, maxAge: 24 * 60 * 60 * 1000 }
+}));
+
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
