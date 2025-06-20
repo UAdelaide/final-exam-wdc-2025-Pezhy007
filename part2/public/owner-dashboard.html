@@ -26,7 +26,8 @@
           <div class="mb-3">
             <label class="form-label">Select Your Dog</label>
             <select v-model="form.dog_id" class="form-control" required>
-              <option value="">--</option>
+              <option value="">-- Choose a dog --</option>
+              <option v-for=""
             </select>
           </div>
           <div class="mb-3">
