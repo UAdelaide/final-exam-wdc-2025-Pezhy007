@@ -169,43 +169,48 @@
           }
         },
         async loadAllDogs() {
-          this.dogsLoading = true;
-          try {
-            const response = await fetch('/api/users/dogs');
-            if (!response.ok) throw new Error('Failed to fetch dogs');
+  this.dogsLoading = true;
+  try {
+    const response = await fetch('/api/users/dogs');
+    if (!response.ok) throw new Error('Failed to fetch dogs');
 
-            const dogsData = await response.json();
-            console.log('Dogs from database:', dogsData);
+    const dogsData = await response.json();
+    console.log('Dogs loaded:', dogsData);
 
-            const dogsWithPhotos = await Promise.all(
-              dogsData.map(async (dog) => {
-                try {
-                  const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
-                  const photoData = await photoResponse.json();
-                  console.log('Photo fetched:', photoData.message);
-                  return {
-                    ...dog,
-                    photo: photoData.message
-                  };
-                } catch (error) {
-                  console.log('Photo fetch failed for dog:', dog.dog_name);
-                  return {
-                    ...dog,
-                    photo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjY2NjY2NjIi8+Cjx0ZXh0IHg9IjQwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Eb2c8L3RleHQ+Cjwvc3ZnPgo='
-                  };
-                }
-              })
-            );
+    // Initialize dogs array with loading placeholders
+    this.dogs = dogsData.map(dog => ({
+      ...dog,
+      photo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjY2NjY2NjIi8+Cjx0ZXh0IHg9IjQwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Mb2FkaW5nPC90ZXh0Pgo8L3N2Zz4K',
+      loading: true
+    }));
 
-            console.log('Final dogs with photos:', dogsWithPhotos);
-            this.dogs = dogsWithPhotos;
-          } catch (error) {
-            console.error('Error loading dogs:', error);
-            this.dogs = [];
-          } finally {
-            this.dogsLoading = false;
-          }
-        },
+    // Load photos one by one and update reactively
+    for (let i = 0; i < this.dogs.length; i++) {
+      try {
+        console.log(`Loading photo for dog ${i}:`, this.dogs[i].dog_name);
+        const photoResponse = await fetch('https://dog.ceo/api/breeds/image/random');
+        const photoData = await photoResponse.json();
+
+        console.log(`Photo loaded for ${this.dogs[i].dog_name}:`, photoData.message);
+
+        // Update the specific dog's photo - this triggers Vue reactivity
+        this.dogs[i].photo = photoData.message;
+        this.dogs[i].loading = false;
+
+      } catch (error) {
+        console.error(`Failed to load photo for dog ${i}:`, error);
+        this.dogs[i].photo = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjY2NjY2NjIi8+Cjx0ZXh0IHg9IjQwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Eb2c8L3RleHQ+Cjwvc3ZnPgo=';
+        this.dogs[i].loading = false;
+      }
+    }
+
+  } catch (error) {
+    console.error('Error loading dogs:', error);
+    this.dogs = [];
+  } finally {
+    this.dogsLoading = false;
+  }
+},
 
         handleImageError(event) {
           event.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjY2NjY2NjIi8+Cjx0ZXh0IHg9IjQwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Eb2c8L3RleHQ+Cjwvc3ZnPgo=';
