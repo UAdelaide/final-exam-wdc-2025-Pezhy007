@@ -97,8 +97,10 @@
               this.isLoggedIn = true;
               this.loginForm = { username: '', password: ''};
               window.location.href = data.redirectTo;
-            } else {}
-          }
+            } else {
+              this.error = data.error;
+            }
+          } catch (error) {}
         }
       }
     }).mount('#app');
