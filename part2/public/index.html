@@ -63,8 +63,9 @@
         };
       },
       async mounted() {
-        await this.check
-      }
+        await this.checkLoginStatus();
+      },
+      methods:
     }).mount('#app');
   </script>
 
