@@ -109,7 +109,7 @@ app.get('/api/walkers/summary', async (req, res) => {
             ORDER BY u.username
         `);
 
-        const processedRows = rows.map(row => ({
+        const processedRows = rows.map((row) => ({
             ...row,
             average_rating: row.total_ratings > 0 ? parseFloat(row.average_rating) : null
         }));
