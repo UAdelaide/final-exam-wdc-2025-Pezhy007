@@ -70,7 +70,8 @@
           try {
             const response = await fetch('/api/users/me');
             if (response.ok) {
-              this.user = await
+              this.user = await response.json();
+              this.isLoggedIn = true;
             }
           }
         }
