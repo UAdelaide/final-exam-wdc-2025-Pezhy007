@@ -94,7 +94,8 @@
 
             if (response.ok) {
               this.user = data.user;
-              this.isLoggedIn
+              this.isLoggedIn = true;
+              this.loginForm = { username: ''}
             }
           }
         }
