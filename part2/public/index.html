@@ -95,7 +95,8 @@
             if (response.ok) {
               this.user = data.user;
               this.isLoggedIn = true;
-              this.loginForm = { username: ''}
+              this.loginForm = { username: '', password: ''};
+              window.location.href
             }
           }
         }
