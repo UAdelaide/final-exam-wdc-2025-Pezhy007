@@ -85,8 +85,12 @@
             if (!response.ok) {
               window.location.href = '/';
             }
-          } catch
+          } catch (error) {
+            window.location.href = '/';
+          }
         }
+
+        
 
         onMounted(() => {
           loadWalkRequests();
