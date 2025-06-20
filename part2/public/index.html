@@ -175,7 +175,7 @@
             if (!response.ok) throw new Error('Failed to fetch dogs');
 
             const dogsData = await response.json();
-            console.log
+            console.log('Dogs from database:', dogsData);
 
             const dogsWithPhotos = await Promise.all(
               dogsData.map(async (dog) => {
