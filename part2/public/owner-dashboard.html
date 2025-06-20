@@ -124,8 +124,10 @@
           try {
             const response = await fetch('/api/users/me');
             if (!response.ok) {
-              window.location.href = ''
+              window.location.href = '/';
             }
+          } catch (error) {
+            window.location.href = '/'
           }
         }
 
